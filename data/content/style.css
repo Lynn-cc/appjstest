@@ -1,0 +1,24 @@
+#main {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+#main div {
+    float:left;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #555;
+}
+
+.one {
+    background-color: #ccc;
+}
+
+.pass {
+    background-color: #000;
+}
+
+.me {
+    background-color: red;
+}
