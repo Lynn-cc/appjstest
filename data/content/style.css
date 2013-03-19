@@ -1,24 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 #main {
     width: 400px;
     height: 400px;
     margin: 0 auto;
 }
 
-#main div {
+.container div {
     float:left;
+    margin: 1px;
     width: 38px;
     height: 38px;
-    border: 1px solid #555;
+    opacity: 0.5;
+    border-radius: 4px;
+    box-shadow: rgb(241, 9, 178) 1px 1px;
+}
+
+.container div:after {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    box-shadow: #ccc 38px 38px -38px;
+}
+
+.winner {
+    display:none;
+}
+
+.win .winner {
+    display: block;
+    line-height: 300px;
+    font-size: 40px;
+    color: #F32;
+    text-align: center;
+}
+
+.restart {
+    margin: 0 auto;
+    display: block;
+    width: 140px;
+    height: 50px;
+    color: #EEE;
+    font-family: '幼圆';
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #F49;
+    border: 0;
 }
 
 .one {
-    background-color: #ccc;
+    background-color: #C6F;
 }
 
 .pass {
-    background-color: #000;
+    background-color: #F69;
+    -webkit-animation-name: bg-color;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes bg-color {
+    0% { background-color: #EEE;}
+    50% { background-color: #E54988}
 }
 
 .me {
-    background-color: red;
+    background-color: #F42;
 }
+
+

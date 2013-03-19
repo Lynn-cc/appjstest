@@ -2,13 +2,13 @@ var app = require('appjs');
 
 app.serveFilesFrom(__dirname + '/content')
 
-var start;
-
 var menubar = app.createMenu([{
     label: '&Game',
     submenu: [{
         label: '&Start',
-        action: start
+        action: function() {
+            window.dispatchEvent(new window.Event('start'));
+        }
     }, {
         label: '&Exit',
         action: function() {
@@ -23,8 +23,8 @@ menubar.on('select', function(item) {
 });
 
 var window = app.createWindow({
-    width: 500,
-    heigth: 500,
+    width: 420,
+    heigth: 400,
     name: 'Guess Me',
     icons: __dirname + '/content/icons'
 });
@@ -33,7 +33,6 @@ window.on('create', function() {
     console.log('window created!');
     window.frame.show();
     window.frame.center();
-    window.frame.setMenuBar(menubar);
 });
 
 var trayMenu = app.createMenu([{
@@ -47,4 +46,10 @@ var statusIcon = app.createStatusIcon({
     icon: './content/icons',
     tooltip: 'TEST',
     menu: trayMenu
+});
+
+window.on('ready', function() {
+    window.frame.setMenuBar(menubar);
+    window.require = require;
+    window.process = process;
 });
