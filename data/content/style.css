@@ -1,11 +1,18 @@
-body {
+body, p {
     margin: 0;
     padding: 0;
 }
+
+body {
+    background-color: #fff;
+}
+
 #main {
+    margin: 0 auto;
     width: 400px;
     height: 400px;
-    margin: 0 auto;
+    background: #fff url(./bg.png) 0 0 no-repeat;
+    background-size: cover;
 }
 
 .container div {
@@ -13,16 +20,11 @@ body {
     margin: 1px;
     width: 38px;
     height: 38px;
-    opacity: 0.5;
+    opacity: 0.6;
     border-radius: 4px;
-    box-shadow: rgb(241, 9, 178) 1px 1px;
-}
-
-.container div:after {
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
-    box-shadow: #ccc 38px 38px -38px;
+    box-shadow: rgb(201, 20, 198) 1px 1px;
+    border-width: 0 2px 2px 0;
+    border-color: rgb(200, 0, 140);
 }
 
 .winner {
@@ -31,23 +33,38 @@ body {
 
 .win .winner {
     display: block;
-    line-height: 300px;
+    padding-top: 80px;
     font-size: 40px;
-    color: #F32;
+    font-family: Monaco;
+    color: #C48;
     text-align: center;
+    -webkit-animation-name: fontcolor;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: ease;
+}
+
+@-webkit-keyframes fontcolor {
+    0% { color: #EEE; font-size: 10px;}
+    /*40% { color: #F5A9F8; font-size: 24px;}*/
+    70% { color: #C84985; font-size: 44px;}
 }
 
 .restart {
-    margin: 0 auto;
+    margin: 100px auto;
     display: block;
-    width: 140px;
-    height: 50px;
+    width: 120px;
+    height: 46px;
     color: #EEE;
-    font-family: '幼圆';
-    font-size: 20px;
-    border-radius: 5px;
-    background-color: #F49;
-    border: 0;
+    font-family: Monaco;
+    font-size: 24px;
+    border-radius: 8px;
+    background-color: #A7C;
+    border-width: 0 2px 2px 0;
+    border-color: #85A;
+}
+
+.restart:hover {
+    background-color: #C9F;
 }
 
 .one {

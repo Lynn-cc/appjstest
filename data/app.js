@@ -17,22 +17,20 @@ var menubar = app.createMenu([{
     }]
 }]);
 
-menubar.on('select', function(item) {
-    console.log('menu item clicked!');
-    console.log(item);
-});
+//menubar.on('select', function(item) {
+//});
 
 var window = app.createWindow({
-    width: 420,
-    heigth: 400,
+    width: 440,
+    height: 460,
     name: 'Guess Me',
     icons: __dirname + '/content/icons'
 });
 
 window.on('create', function() {
-    console.log('window created!');
     window.frame.show();
     window.frame.center();
+    window.frame.setMenuBar(menubar);
 });
 
 var trayMenu = app.createMenu([{
@@ -49,7 +47,14 @@ var statusIcon = app.createStatusIcon({
 });
 
 window.on('ready', function() {
-    window.frame.setMenuBar(menubar);
     window.require = require;
     window.process = process;
+    bindEvent();
 });
+
+function bindEvent() {
+    window.addEventListener('keydown', function(e) {
+        if (e.keyIdentifier === 'F12')
+            window.frame.openDevTools();
+    });
+}
